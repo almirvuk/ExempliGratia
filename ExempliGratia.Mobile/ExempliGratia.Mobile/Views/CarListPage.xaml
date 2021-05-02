@@ -1,0 +1,54 @@
+﻿<?xml version="1.0" encoding="utf-8" ?>
+<ContentPage xmlns="http://xamarin.com/schemas/2014/forms"
+             xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+             x:Class="ExempliGratia.Mobile.Views.CarListPage"
+             xmlns:prism="http://prismlibrary.com"
+             Title="Cars">
+    
+    <ListView ItemsSource="{Binding Cars}"
+              HasUnevenRows="True">
+        <ListView.ItemTemplate>
+            <DataTemplate>
+                
+                <ViewCell>
+
+                    <Grid>
+                        <Grid.ColumnDefinitions>
+                            <ColumnDefinition Width="3*"/>
+                            <ColumnDefinition Width="5*"/>
+                        </Grid.ColumnDefinitions>
+
+                        <Image Source="{Binding PhotoUrl}" 
+                               HeightRequest="100"
+                               Aspect="AspectFit"
+                               Margin="4"
+                               HorizontalOptions="Start"
+                               Grid.Column="0" />
+                        
+                        <Label Grid.Column="1"
+                               FontAttributes="Bold"
+                               VerticalOptions="Center"
+                               FontSize="Medium"
+                               HorizontalOptions="Center">
+                            <Label.FormattedText>
+                                <FormattedString>
+                                    <Span Text="{Binding Make}" />
+                                    <Span Text=" " />
+                                    <Span Text="{Binding Model}" />
+                                </FormattedString>
+                            </Label.FormattedText>
+                        </Label>
+                    </Grid>
+               
+                </ViewCell>
+            </DataTemplate>
+
+        </ListView.ItemTemplate>
+
+        <ListView.Behaviors>
+            <prism:EventToCommandBehavior EventName="ItemTapped" 
+                                          Command="{Binding SelectedCarCommand}"
+                                          EventArgsParameterPath="Item" />
+        </ListView.Behaviors>
+    </ListView>
+</ContentPage>

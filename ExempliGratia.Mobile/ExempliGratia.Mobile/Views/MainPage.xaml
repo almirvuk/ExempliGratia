@@ -1,0 +1,19 @@
+﻿<?xml version="1.0" encoding="utf-8" ?>
+<ContentPage xmlns="http://xamarin.com/schemas/2014/forms"
+             xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+             x:Class="ExempliGratia.Mobile.Views.MainPage"
+             Title="Exempli Gratia">
+
+    <StackLayout HorizontalOptions="CenterAndExpand"
+                 VerticalOptions="CenterAndExpand" 
+                 Margin="8">
+        
+        <Label Text="Welcome to Exempli Gratia sample app, app made by using Xamarin Forms and Prism!" 
+               HorizontalTextAlignment="Center"/>
+
+        <Button Text="Car List Example Page"
+                HorizontalOptions="Center"
+                Command="{Binding NavigateToCarListPageCommand}"/>
+    </StackLayout>
+
+</ContentPage>
